@@ -16,9 +16,9 @@ dlPeople = [
     {'ID': 5, 'DL': "AP40380363542018" , 'Name':"ANAGAHA", 'Fname':"AYENDEH", 'IssuedDate':"09-11-2011", 'Address':"11-143,EBD .C.COLONY,CHITTOOR, PULICHERLA CHITTOOR-517172"}
 ]
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
-    pass
+    return "~root:x"
 
 @app.route('/pan/people', methods=['GET'])
 def getPanPeople():
@@ -42,4 +42,6 @@ def getDlPerson(DL):
             return jsonify(person)
     return jsonify({'message': '`DL` not found'})
 
-app.run(port=5000)
+
+if __name__ == '__main__':
+    app.run()
